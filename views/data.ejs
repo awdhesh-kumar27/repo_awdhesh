@@ -1,0 +1,28 @@
+
+<div  >
+    <ul>
+         [
+         <% list = ["level","message","resourceId","timestamp","spanId","commit"] %>
+        <% another.forEach(item =>{ %>
+             <p>{</p>
+            <%  for(var i in item){ %>
+                <% var index = list.indexOf(i) %>
+                <%   if(i === "metadata"){ %>
+                      <p>     <span> <%= i %></span>
+                           <span> : {</span>
+                           <span> parentResourceId : <%= item[i]["parentResourceId"]  %> }</span></p>
+                         <% } else if(index  > 0){%>
+                            <p>  <span> <%= i %></span>
+                           <span> : </span>
+                           <span><%= item[i]  %> , </span> </p>
+                         <% } %>
+                <%   } %>
+                <p>}
+                 <% if(another.length > 1){ %>
+                   <span>,</span>
+                  <% } %>
+                </p>
+          <% }); %>
+          ]
+      </ul>
+</div>
